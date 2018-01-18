@@ -30,11 +30,12 @@
    */
   Helpers.formatDateTime = function(date) {
     var year = date.getFullYear(),
-        month = date.getMonth(),
+        month = date.getMonth() + 1,
         day = date.getDate(),
         hours = date.getHours(),
         minutes = date.getMinutes();
 
+    month = month < 10 ? '0' + month : month;
     minutes = minutes < 10 ? '0' + minutes : minutes;
 
     return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes;
