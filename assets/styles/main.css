@@ -1,37 +1,137 @@
-body,
-html {
-  background: #3b57a7;
-  background: -webkit-gradient(linear, left top, left bottom, from(0), color-stop(#3b57a7), to(#002650)) fixed;
-  background: linear-gradient(0, #3b57a7, #002650) fixed;
-  height: 100%;
+* {
+  box-sizing: border-box;
 }
 
-datalist {
-  background: white;
+html {
+  font-family: 'Source Sans Pro', 'Arial', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body {
+  background-color: #3b57a7;
+  background: linear-gradient(180deg, #002750, #3b58a7) fixed;
+  color: white;
+}
+
+/*
+ * Header component
+ */
+.c-header {
+  padding-top: 4em;
+  padding-bottom: 4em;
+}
+.c-header__logo {
+  display: block;
+  margin: 0 auto;
+}
+
+/*
+ * Input component
+ */
+.c-input {
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 0.25em;
+  padding: 1em 1em;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: white;
+}
+.c-input::placeholder {
+  color: #B5C3D2;
+}
+.c-input:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+.c-input:focus::placeholder {
+  color: #859cb5;
+}
+.c-input--search {
+  padding-left: 3em;
+  background-image: url(../../assets/images/search.svg);
+  background-repeat: no-repeat;
+  background-size: 1em;
+  background-position: 1em;
+}
+
+/*
+ * Search results component
+ */
+.c-search-results {
+  position: absolute;
+  margin-top: -0.25em;
+  width: calc(100% - 2em);
+  border-bottom-left-radius: 0.25em;
+  border-bottom-right-radius: 0.25em;
+  background-color: white;
+  z-index: 10;
+}
+.c-search-results > option {
+  color: #222222;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+.c-search-results > option:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/*
+ * Search history component
+ */
+.c-search-history {
+  margin: 0 -2em;
+  padding: 0;
+  list-style: none;
+}
+.c-search-history > li {
+  display: block;
+}
+.c-search-history > li:first-child {
+  
+}
+.c-search-history > li:last-child {
+  
+}
+.c-search-history > li:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.c-search-history__title{
   
 }
 
-.container {
+
+
+
+.c-wrapper {
+  margin: 4em 0;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+.c-container {
+  position: relative;
   margin-right: auto;
   margin-left: auto;
-  padding-left:  12px;
-  padding-right: 12px;
+  padding-left:  1em;
+  padding-right: 1em;
 }
 
 @media (min-width: 768px) {
-  .container {
+  .c-container {
     width: 738px;
   }
 }
 
 @media (min-width: 990px) {
-  .container {
+  .c-container {
     width: 960px;
   }
 }
 
 @media (min-width: 1200px) {
-  .container {
+  .c-container {
     width: 1170px;
   }
 }

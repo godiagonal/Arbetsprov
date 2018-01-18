@@ -10,18 +10,26 @@
   </head>
   <body>
 
-      <header class="c-header container">
-        <img class="c-header__logo" src="assets/logo.svg" alt="Searq Logo">
+      <header class="c-header c-container">
+        <img class="c-header__logo" src="assets/images/logo.svg" alt="Searq Logo">
       </header>
 
-      <main class="container">
+      <main>
 
-        <input type="text" id="search-input" class="c-input c-input--search" placeholder="Search songs on iTunes..."
-                aria-label="Type to search" aria-controls="search-results" />
+        <section class="c-container">
 
-        <datalist id="search-results" class="c-search-results"></datalist>
+          <input type="text" id="search-input" class="c-input c-input--search" placeholder="Search songs on iTunes..."
+                  aria-label="Type to search" aria-controls="search-results" />
 
-        <ul id="search-history" class="c-search-history"></ul>
+          <datalist id="search-results" class="c-search-results"></datalist>
+
+        </section>
+
+        <div class="c-wrapper c-wrapper--white">
+          <section class="c-container">
+            <ul id="search-history" class="c-search-history"></ul>
+          </section>
+        </div>
 
       </main>
       
