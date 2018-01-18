@@ -288,28 +288,46 @@
       self.data.forEach(function(item) {
         var li = document.createElement('li');
 
+        var container = document.createElement('div');
+        container.classList.add('container');
+
         var title = document.createElement('div');
-        title.classList.add('c-search-results__title');
+        title.classList.add('search-history__title');
         title.innerHTML = item.title;
 
         var created = document.createElement('div');
-        created.classList.add('c-search-results__created');
+        created.classList.add('search-history__created');
         created.innerHTML = Helpers.formatDateTime(item.created);
 
         var button = document.createElement('button');
-        button.classList.add('c-search-results__remove');
+        button.classList.add('search-history__remove');
 
         button.addEventListener('click', function(ev) {
           self.remove.call(ev, item.title);
         });
 
-        li.appendChild(title);
-        li.appendChild(created);
-        li.appendChild(button);
+        container.appendChild(title);
+        container.appendChild(created);
+        container.appendChild(button);
+
+        li.appendChild(container);
   
         listElement.appendChild(li);
       });
+
+      self.toggle(self.data.length > 0);
     }
+
+    /**
+     * Toggles visibility of the search history list.
+     * @param {boolean} show 
+     */
+    self.toggle = function(show) {
+      if (show)
+        listElement.style.display = 'block';
+      else
+        listElement.style.display = 'none';
+    };
   }
 
   /**
