@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SEARQ - Search songs on iTunes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/styles/normalize.css">
+    <link rel="stylesheet" href="assets/styles/main.css">
+  </head>
+  <body>
+
+      <header class="c-header container">
+        <img class="c-header__logo" src="assets/logo.svg" alt="Searq Logo">
+      </header>
+
+      <main class="container">
+
+        <input type="text" id="search-input" class="c-input c-input--search" placeholder="Search songs on iTunes..."
+                aria-label="Type to search" aria-controls="search-results" />
+
+        <datalist id="search-results" class="c-search-results"></datalist>
+
+        <ul id="search-history" class="c-search-history"></ul>
+
+      </main>
+      
+      <script src="assets/scripts/main.js"></script>
+
+  </body>
+</html>

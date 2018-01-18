@@ -1,0 +1,12 @@
+body,
+html {
+  background: #3b57a7;
+  background: -webkit-gradient(linear, left top, left bottom, from(0), color-stop(#3b57a7), to(#002650)) fixed;
+  background: linear-gradient(0, #3b57a7, #002650) fixed;
+  height: 100%;
+}
+
+datalist {
+  background: white;
+  
+}
