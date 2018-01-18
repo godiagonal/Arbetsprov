@@ -135,6 +135,25 @@
         callback.call(ev, ev.target.value);
       }, DEBOUNCE_TIME));
     };
+
+    /**
+     * Event handler for when the focus state of the input changes.
+     * @param {callback} callback Function called when focus state changes, returns true if input is focused
+     */
+    self.onFocusStateChange = function(callback) {
+      inputElement.addEventListener('focus', function(ev) {
+        callback.call(ev, true);
+      });
+
+      /**
+       * I don't use the blur event here since it prevents the click event from firing
+       * when clicking on a search result
+       */
+      document.addEventListener('click', function(ev) {
+        if (ev.target !== inputElement)
+          callback.call(ev, false);
+      });
+    };
   }
 
   /**
@@ -174,6 +193,17 @@
 
       updateList();
     };
+
+    /**
+     * Toggles visibility of the search results list.
+     * @param {boolean} show 
+     */
+    self.toggle = function(show) {
+      if (show)
+        listElement.style.display = 'block';
+      else
+        listElement.style.display = 'none';
+    };
     
     /**
      * Syncs DOM with items in self.data.
@@ -193,7 +223,7 @@
   
         listElement.appendChild(option);
       });
-    };
+    }
   }
 
   /**
@@ -329,11 +359,14 @@
     });
 
     /**
+     * Show/hide the search results list depending on the input focus state
+     */
+    gui.searchInput.onFocusStateChange(gui.searchResults.toggle);
+
+    /**
      * Add search result to history list when clicking.
      */
-    gui.searchResults.onSelect(function(value) {
-      gui.searchHistory.add(value);
-    });
+    gui.searchResults.onSelect(gui.searchHistory.add);
   });
-  
+
 }();
